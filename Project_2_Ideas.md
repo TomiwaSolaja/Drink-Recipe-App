@@ -3,9 +3,13 @@
 **Recipe generator (foods, Drinks(cocktails), account needed for Ratings or reviews, Upload pictures, not cocktail specific)**
 
 ~~1. Kanban Board (Board for delegating tasks and organizing responsiblites for multiple people, more user interaction on webpage, *more unique)~~
+
 ~~3. Marketplace (ebay, facebook marketplace esc, *Bigger theme, *more complex)~~
+
 ~~4. Registration Landing Page (advertisments of upcomming events, registration for email for newsletters)~~
+
 ~~5. clothes generator (website for personalizing your own clothing and shoes)~~
+
 
 - Write a detailed list of all user stories (as a ___ i want to _____ so that i can ____)
 - Organize them and put them in order of priority
