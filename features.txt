@@ -1,0 +1,10 @@
+When the website is opened i have the option to log in to save and edit drinks
+When on the main page the user can click on one of 5 sections smoothies, healthy drinks, cocktails, vegan, kids
+when a recipe is selected user is redirected to medium sized image with description ingredients, instructons on how to make and other tags associated with the drink
+when on the login page i have the option to register an account on the website
+when i click on the cocktail options i am redirected to a tab telling me to log in
+3 drinks each section for the MVP
+OPTIONAL
+Drink Recipe Randomizer
+Community recipes page (need account) to upload personal recipes for others to look at (reviews or ratings)
+(optional *tea, Coffee,appetizers)
