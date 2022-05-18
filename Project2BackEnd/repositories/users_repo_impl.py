@@ -1,7 +1,9 @@
+from exceptions import invalid_argument
 from exceptions.resource_not_found import ResourceNotFound
 from models.users_model import UsersModel
 from repositories.users_repo import UsersRepo
 from util.db_connection import connection
+
 
 
 # Helper Method
@@ -12,6 +14,7 @@ def _build_user(record):
 class UsersRepoImpl(UsersRepo):
 
     def create_user(self, user):
+
         sql = "INSERT INTO users VALUES (DEFAULT,%s,%s,%s,%s) RETURNING *"
 
         cursor = connection.cursor()
@@ -60,9 +63,9 @@ class UsersRepoImpl(UsersRepo):
 
 def _test():
     ur = UsersRepoImpl()
-    # user = UsersModel(name="Test Test", email="test@email.com", birth_date="02-02-2022", password="p@ssword")
-    # user1 = ur.create_user(user)
-    # print(user1)
+    user = UsersModel(name="Test Test", email="test@email.com", birth_date="02-02-2022", password="p@ssword")
+    user1 = ur.create_user(user)
+    print(user1)
 
     user = ur.get_user(1)
     print(user)
@@ -75,7 +78,7 @@ def _test():
     print("-------------------------------------------------------")
     ur.delete_user(user.user_id)
     print(ur.get_all_users())
-    
+
 
 if __name__ == '__main__':
     _test()

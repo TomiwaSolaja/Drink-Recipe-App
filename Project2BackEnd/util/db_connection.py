@@ -5,11 +5,11 @@ from psycopg2._psycopg import OperationalError
 def create_connection():
     try:
         conn = psycopg2.connect(
-            database='mydb',
-            user='isalcedo',
-            password='Izzi90909',
-            host='database-1.crlxxrqlimxb.us-east-2.rds.amazonaws.com',
-            port='5432'
+            database='project2',
+            user='postgres',
+            password='sHRu0lfqaeaWGTmwSV1C',
+            host='database-1.cq3mfdb8b96b.us-west-1.rds.amazonaws.com',
+            port="5432"
         )
 
         return conn
