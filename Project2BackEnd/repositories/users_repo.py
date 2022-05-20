@@ -23,3 +23,7 @@ class UsersRepo(ABC):
     def delete_user(self, user_id):
         pass
 
+    @abstractmethod
+    def login(self, name, password):
+        pass
+

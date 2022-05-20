@@ -1,10 +1,12 @@
 from exceptions.invalid_argument import InvalidArgument
 from exceptions.resource_not_found import ResourceNotFound
+from models.login import Login
 from models.users_model import UsersModel
 from repositories.users_repo import UsersRepo
 from repositories.users_repo_impl import UsersRepoImpl
 from flask import request, jsonify
 
+from services.login_service import LoginService
 from services.users_service import UsersService
 
 ur = UsersRepoImpl()
@@ -12,12 +14,31 @@ us = UsersService(ur)
 
 
 def route(app):
+    # login employee
+    # @app.route("/users/login", methods=["POST"])
+    # def login():
+    #     users = us.login(
+    #         request.json['name'], request.json['password'])
+    #     if users is None:
+    #         return request.json, 403
+    #
+    #     print(users.user_id)
+    #     return jsonify({"id": users.user_id}), 200
+    @app.route("/login", methods=["POST"])
+    def employee_login():
+        try:
+            login = Login.json_parse(request.json)
+            e_login = LoginService.employee_login(login)
+            return jsonify(e_login), 200
+        except TypeError:
+            return "Username or Password is incorrect, please try again", 404
+
     @app.route("/users", methods=["POST"])
     def register_user():
         body = request.json
 
         user = UsersModel(name=body["name"], email=body["email"], birth_date=body["birthDate"],
-                              password=body["password"])
+                          password=body["password"])
 
         user = us.create_user(user)
 
@@ -54,4 +75,3 @@ def route(app):
     def delete_user(user_id):
         us.delete_user(user_id)
         return '', 204
-
