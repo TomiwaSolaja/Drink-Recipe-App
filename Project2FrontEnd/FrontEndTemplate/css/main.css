@@ -417,6 +417,10 @@ Hero
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
+  background-image: url('../assets/Orange_Drink.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
   border-radius: var(--borderRadius);
 }
 .hero-text {
