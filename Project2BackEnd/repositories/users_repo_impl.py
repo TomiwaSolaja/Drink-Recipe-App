@@ -13,6 +13,20 @@ def _build_user(record):
 
 class UsersRepoImpl(UsersRepo):
 
+    def login(self, name, password):
+        print(name, password)
+        sql = "SELECT user_id FROM users WHERE name = %s AND password = %s"
+
+        cursor = connection.cursor()
+        cursor.execute(sql, [name, password])
+
+        if cursor.rowcount == 0:
+            return None
+
+        record = cursor.fetchone()
+
+        return _build_user(record[0])
+
     def create_user(self, user):
 
         sql = "INSERT INTO users VALUES (DEFAULT,%s,%s,%s,%s) RETURNING *"
