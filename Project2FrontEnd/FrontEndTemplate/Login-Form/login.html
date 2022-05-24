@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Login</h1>
+        <div id="form">
+            <div class="form-group">
+                <label for="username">Full Name</label>
+                <input type="text" id="username" name="name" placeholder="Full Name" required minlength="3" maxlength="100">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button onclick="login()" id="login">Login</button>
+        <span id="message"></span>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    function login(){
+        console.log("login");
+
+        let xttp = new XMLHttpRequest();
+        
+        xttp.onreadystatechange = function(){
+            console.log(this.readyState);
+
+            if (this.readyState === 4 && this.status === 200){
+                console.log(this.responseText);
+
+                let employee = JSON.parse(this.responseText);
+                document.location.href = "/Registration_Form_main/registration.html";
+            }
+        }
+
+        url = "http://localhost:5000/login";
+
+        xttp.open("POST", url, true);
+
+        let body = {
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        };
+
+        xttp.setRequestHeader('Content-Type', 'application/json')
+
+        xttp.send(JSON.stringify(body));
+    }
+
+</script>
+</html>
