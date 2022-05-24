@@ -401,10 +401,10 @@ Hero
 */
 
 .hero {
-  height: 40vh;
+  height: 45vh;
   position: relative;
   margin-bottom: 2rem;
-  background: url('../assets/main.jpeg') center/cover no-repeat;
+  background: url('../assets/images/drinkbck.jpg') center/cover no-repeat;
   border-radius: var(--borderRadius);
 }
 .hero-container {
