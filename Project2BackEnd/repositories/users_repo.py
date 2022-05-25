@@ -24,6 +24,6 @@ class UsersRepo(ABC):
         pass
 
     @abstractmethod
-    def login(self, name, password):
+    def login(self, user):
         pass
 

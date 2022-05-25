@@ -6,8 +6,8 @@ class UsersService:
     def __init__(self, users_repo: UsersRepo):
         self.users_repo = users_repo
 
-    def login(self, name, password):
-        return self.users_repo.login(name, password)
+    def login(self, user):
+        return self.users_repo.login(user)
 
     def create_user(self, user):
         return self.users_repo.create_user(user)

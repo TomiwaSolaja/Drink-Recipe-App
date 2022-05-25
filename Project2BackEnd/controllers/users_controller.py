@@ -27,8 +27,8 @@ def route(app):
     @app.route("/login", methods=["POST"])
     def employee_login():
         try:
-            login = Login.json_parse(request.json)
-            e_login = LoginService.employee_login(login)
+            login = UsersModel.json_parse(request.json)
+            e_login = UsersService.login()
             return jsonify(e_login), 200
         except TypeError:
             return "Username or Password is incorrect, please try again", 404

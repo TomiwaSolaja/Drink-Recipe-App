@@ -1,4 +1,3 @@
-
 class UsersModel:
     def __init__(self, user_id=0, name="", email="", birth_date="", password=""):
         self.user_id = user_id
@@ -17,10 +16,18 @@ class UsersModel:
         })
 
     def json(self):
-        return{
+        return {
             'userId': self.user_id,
             'name': self.name,
             'email': self.email,
             'birthDate': self.birth_date,
             'password': self.password
         }
+
+    @staticmethod
+    def json_parse(json):
+        login = UsersModel()
+        login.username = json["username"]
+        login.password = json["password"]
+        login.id = json["id"] if "id" in json else 0
+        return login

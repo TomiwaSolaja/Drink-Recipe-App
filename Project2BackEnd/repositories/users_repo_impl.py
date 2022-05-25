@@ -1,4 +1,5 @@
 from exceptions import invalid_argument
+from exceptions.login_exception import LoginException
 from exceptions.resource_not_found import ResourceNotFound
 from models.users_model import UsersModel
 from repositories.users_repo import UsersRepo
@@ -10,22 +11,21 @@ from util.db_connection import connection
 def _build_user(record):
     return UsersModel(user_id=record[0], name=record[1], email=record[2], birth_date=record[3], password=record[4])
 
+def _login_user(record):
+    return UsersModel(user_id=record[0], name=record[1], password=record[4])
 
 class UsersRepoImpl(UsersRepo):
 
-    def login(self, name, password):
-        print(name, password)
-        sql = "SELECT user_id FROM users WHERE name = %s AND password = %s"
-
+    def login(self, user):
+        sql = "SELECT * FROM users WHERE name = %s AND password = %s"
         cursor = connection.cursor()
-        cursor.execute(sql, [name, password])
-
-        if cursor.rowcount == 0:
-            return None
-
+        cursor.execute(sql, (user.name, user.password))
+        connection.commit()
         record = cursor.fetchone()
-
-        return _build_user(record[0])
+        if record:
+            return _login_user(record)
+        else:
+            raise LoginException("Incorrect username or password")
 
     def create_user(self, user):
 
