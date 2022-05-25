@@ -12,7 +12,7 @@
         <div id="form">
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="email@address.com" required>
+                <input type="email" id="email" placeholder="email@address.com" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -38,7 +38,7 @@
                 console.log(this.responseText);
 
                 let employee = JSON.parse(this.responseText);
-                document.location.href = "/Registration_Form_main/registration.html";
+                document.location.href = "/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/cocktails.html";
             }
         }
 
@@ -47,7 +47,7 @@
         xttp.open("POST", url, true);
 
         let body = {
-            username: document.getElementById("email").value,
+            email: document.getElementById("email").value,
             password: document.getElementById("password").value
         };
 
