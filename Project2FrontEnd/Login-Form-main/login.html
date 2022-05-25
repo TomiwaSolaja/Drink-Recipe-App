@@ -11,8 +11,8 @@
         <h1>Employee Login</h1>
         <div id="form">
             <div class="form-group">
-                <label for="username">Full Name</label>
-                <input type="text" id="username" name="name" placeholder="Full Name" required minlength="3" maxlength="100">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="email@address.com" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -47,7 +47,7 @@
         xttp.open("POST", url, true);
 
         let body = {
-            username: document.getElementById("username").value,
+            username: document.getElementById("email").value,
             password: document.getElementById("password").value
         };
 
