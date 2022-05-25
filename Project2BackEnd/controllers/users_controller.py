@@ -1,12 +1,7 @@
-from exceptions.invalid_argument import InvalidArgument
-from exceptions.resource_not_found import ResourceNotFound
-from models.login import Login
-from models.users_model import UsersModel
-from repositories.users_repo import UsersRepo
-from repositories.users_repo_impl import UsersRepoImpl
 from flask import request, jsonify
-
-from services.login_service import LoginService
+from exceptions.resource_not_found import ResourceNotFound
+from models.users_model import UsersModel, Login
+from repositories.users_repo_impl import UsersRepoImpl
 from services.users_service import UsersService
 
 ur = UsersRepoImpl()
@@ -27,8 +22,8 @@ def route(app):
     @app.route("/login", methods=["POST"])
     def employee_login():
         try:
-            login = UsersModel.json_parse(request.json)
-            e_login = UsersService.login()
+            login = Login.json_parse(request.json)
+            e_login = us.login(login)
             return jsonify(e_login), 200
         except TypeError:
             return "Username or Password is incorrect, please try again", 404

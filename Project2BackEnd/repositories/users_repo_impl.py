@@ -1,18 +1,18 @@
-from exceptions import invalid_argument
 from exceptions.login_exception import LoginException
 from exceptions.resource_not_found import ResourceNotFound
-from models.users_model import UsersModel
+from models.users_model import UsersModel, Login
 from repositories.users_repo import UsersRepo
 from util.db_connection import connection
-
 
 
 # Helper Method
 def _build_user(record):
     return UsersModel(user_id=record[0], name=record[1], email=record[2], birth_date=record[3], password=record[4])
 
+
 def _login_user(record):
-    return UsersModel(user_id=record[0], name=record[1], password=record[4])
+    return Login(user_id=record[0], name=record[1], password=record[4])
+
 
 class UsersRepoImpl(UsersRepo):
 
@@ -23,7 +23,7 @@ class UsersRepoImpl(UsersRepo):
         connection.commit()
         record = cursor.fetchone()
         if record:
-            return _login_user(record)
+            return Login(record[0], record[1], record[2]).json()
         else:
             raise LoginException("Incorrect username or password")
 

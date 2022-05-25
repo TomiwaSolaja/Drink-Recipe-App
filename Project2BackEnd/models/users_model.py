@@ -24,10 +24,42 @@ class UsersModel:
             'password': self.password
         }
 
+
+class Login:
+
+    def __init__(self, user_id=0, name="", password=""):
+        self.user_id = user_id
+        self.name = name
+        self.password = password
+
+    def json(self):
+        return {
+            'userId': self.user_id,
+            'name': self.name,
+            'password': self.password
+
+        }
+
     @staticmethod
     def json_parse(json):
-        login = UsersModel()
-        login.username = json["username"]
-        login.password = json["password"]
-        login.id = json["id"] if "id" in json else 0
+        login = Login()
+        login.name = json['name']
+        login.password = json['password']
+        login.user_id = json['userId'] if 'userId' in json else 0
+
         return login
+
+    def __repr__(self):
+        return str(self.json())
+
+    def __eq__(self, other):
+        if not other:
+            return False
+
+        if not isinstance(other, Login):
+            return False
+
+        return self.__dict__ == other.__dict__
+
+
+# if __name__ == '__main__':
