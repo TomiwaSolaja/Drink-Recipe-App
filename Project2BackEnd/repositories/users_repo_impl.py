@@ -11,21 +11,21 @@ def _build_user(record):
 
 
 def _login_user(record):
-    return Login(user_id=record[0], name=record[1], password=record[4])
+    return Login(user_id=record[0], email=record[2], password=record[4])
 
 
 class UsersRepoImpl(UsersRepo):
 
     def login(self, user):
-        sql = "SELECT * FROM users WHERE name = %s AND password = %s"
+        sql = "SELECT * FROM users WHERE email = %s AND password = %s"
         cursor = connection.cursor()
-        cursor.execute(sql, (user.name, user.password))
+        cursor.execute(sql, (user.email, user.password))
         connection.commit()
         record = cursor.fetchone()
         if record:
             return Login(record[0], record[1], record[2]).json()
         else:
-            raise LoginException("Incorrect username or password")
+            raise LoginException("Incorrect email or password")
 
     def create_user(self, user):
 

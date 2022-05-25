@@ -26,7 +26,7 @@ def route(app):
             e_login = us.login(login)
             return jsonify(e_login), 200
         except TypeError:
-            return "Username or Password is incorrect, please try again", 404
+            return "email or Password is incorrect, please try again", 404
 
     @app.route("/users", methods=["POST"])
     def register_user():
