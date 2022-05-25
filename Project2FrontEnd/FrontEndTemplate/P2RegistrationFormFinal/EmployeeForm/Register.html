@@ -73,9 +73,12 @@
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
+
         });
 
+
         const body = await httpResponse.json();
+
 
         console.log(body);
         if(body) {
@@ -84,7 +87,8 @@
             alert("Registration unsuccessful.")
         }
 
-
+        window.location.reload();
+        document.location.href = "/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/Login-Form/login.html";
     }
 
 
