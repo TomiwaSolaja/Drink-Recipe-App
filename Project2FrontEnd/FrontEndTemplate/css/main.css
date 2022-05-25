@@ -276,12 +276,16 @@ Navbar
   align-items: center;
 }
 .nav-header img {
-  width: 200px;
+  width: 100px;
+  margin: 25px 20px 15px 20px;
 }
+
 .nav-logo {
   display: flex;
   align-items: flex-end;
 }
+
+
 
 .nav-btn {
   padding: 0.15rem 0.75rem;
