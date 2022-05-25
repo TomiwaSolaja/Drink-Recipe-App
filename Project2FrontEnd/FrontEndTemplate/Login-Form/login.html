@@ -11,8 +11,8 @@
         <h1>Login</h1>
         <div id="form">
             <div class="form-group">
-                <label for="username">Full Name</label>
-                <input type="text" id="username" name="name" placeholder="Full Name" required minlength="3" maxlength="100">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Full Name" required minlength="3" maxlength="100">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
@@ -50,7 +50,7 @@
         xttp.open("POST", url, true);
 
         let body = {
-            username: document.getElementById("username").value,
+            name: document.getElementById("name").value,
             password: document.getElementById("password").value
         };
 
