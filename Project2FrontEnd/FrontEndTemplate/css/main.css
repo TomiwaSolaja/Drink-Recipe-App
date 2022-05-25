@@ -742,9 +742,18 @@ Recipe Template
   padding-bottom: 0.75rem;
   color: var(--grey-700);
 }
+
 .single-tool {
   border-bottom: 2px solid var(--grey-300);
   padding-bottom: 0.75rem;
   color: var(--primary-500);
   text-transform: capitalize;
 }
+
+.label {
+  color: white;
+  padding: 8px;
+  font-family: Arial;
+}
+
+.warning {background-color: #ff9800;} /* Orange */
