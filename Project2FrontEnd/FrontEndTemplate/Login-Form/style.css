@@ -17,7 +17,7 @@ body {
 
 .container {
   width: 480px;
-  height: 330px;
+  height: 390px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -71,6 +71,10 @@ button {
   font-size: 20px;
   letter-spacing: 2px;
   margin-top: 5px;
+}
+
+.Home {
+  color: blue;
 }
 
 button:hover {
