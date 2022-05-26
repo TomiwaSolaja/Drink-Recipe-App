@@ -75,23 +75,7 @@ class UsersRepoImpl(UsersRepo):
         connection.commit()
 
 
-def _test():
-    ur = UsersRepoImpl()
-    user = UsersModel(name="Test Test", email="test@email.com", birth_date="02-02-2022", password="p@ssword")
-    user1 = ur.create_user(user)
-    print(user1)
 
-    user = ur.get_user(1)
-    print(user)
-    print("-------------------------------------------------------")
-    print(ur.get_all_users())
-    print("-------------------------------------------------------")
-    user.name = "Updated Name"
-    user = ur.update_user(user)
-    print(user)
-    print("-------------------------------------------------------")
-    ur.delete_user(user.user_id)
-    print(ur.get_all_users())
 
 
 if __name__ == '__main__':
