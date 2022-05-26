@@ -8,8 +8,8 @@ def create_connection():
 
             database='project2',
             user='postgres',
-            password='sHRu0lfqaeaWGTmwSV1C',
-            host='database-1.cq3mfdb8b96b.us-west-1.rds.amazonaws.com',
+            password='P898ITugc7FMXCLOzwvk',
+            host='database-1.cbpbucukjqlm.us-east-1.rds.amazonaws.com',
             port="5432"
 
         )
