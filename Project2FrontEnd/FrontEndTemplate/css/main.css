@@ -757,7 +757,6 @@ Recipe Template
 .label {
   color: white;
   padding: 8px;
-  font-family: Arial;
 }
 
-.warning {background-color: #ff9800;} /* Orange */
+/*.warning {background-color: #ff9800;} !* Orange *!*/
