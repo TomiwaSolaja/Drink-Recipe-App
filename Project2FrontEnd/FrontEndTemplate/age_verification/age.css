@@ -16,9 +16,11 @@ body {
 }
 
 .container {
+  /*width: 960px;*/
+  /*margin: 0 auto;*/
   width: 480px;
   height: 390px;
-  background: white;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,13 +53,7 @@ input {
   transition: all 0.3s;
 }
 
-input:valid {
-  border: 1px solid green;
-}
 
-input:invalid {
-  border: 1px solid red;
-}
 
 button {
   cursor: pointer;
@@ -73,9 +69,8 @@ button {
   margin-top: 5px;
 }
 
-
 button:hover {
-  filter: brightness(200%);
+  filter: brightness(110%);
   background: rgb(22, 22, 22);
 }
 
@@ -83,12 +78,18 @@ button:focus {
   outline: none;
 }
 
-.message-container {
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 90%;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  color: black;
+.action_btn {
+  display: inline-flex;
+  width: calc(50% - 4px);
+  margin: 20px auto;
 }
+
+span {
+  float: left;
+  height: 100px;
+  margin: 20px;
+  padding: 10px;
+  min-width: 130px;
+  position: inherit;
+}
+
