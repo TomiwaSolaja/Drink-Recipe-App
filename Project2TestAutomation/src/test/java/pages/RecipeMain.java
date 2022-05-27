@@ -23,8 +23,11 @@ public class RecipeMain {
     @FindBy(xpath = "/html/body/div/div/div[2]/input")
     private WebElement passwordField;
 
-    @FindBy(id = "login")
+    @FindBy(xpath = "/html/body/div/div/button[1]")
     private WebElement loginButton;
+
+    @FindBy(xpath = "/html/body/div/div[2]/button[1]")
+    private WebElement twentyOneButton;
 
 
     public void clickVegan() {
@@ -41,6 +44,7 @@ public class RecipeMain {
         passwordField.sendKeys("1234");
     }
     public void clickLogin() { loginButton.click(); }
+    public void clickTwentyOneButton() { twentyOneButton.click(); }
 
 
     public RecipeMain(WebDriver driver) {

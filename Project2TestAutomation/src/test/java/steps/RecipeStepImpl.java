@@ -17,7 +17,7 @@ public class RecipeStepImpl {
 
     @Given("^The User is on the Recipes De Beber Homepage$")
     public void the_User_is_on_the_Recipes_De_Beber_Homepage() {
-        driver.get("file:///C:/Users/Admin/Desktop/FrontEndP2/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/index.html"); }
+        driver.get("C:/Users/Admin/Desktop/Project2/Project2FrontEndLocal/FrontEndTemplate/index.html"); }
 
     @When("^The User clicks on Vegan drinks$")
     public void the_User_clicks_on_Vegan_drinks() {
@@ -64,15 +64,9 @@ public class RecipeStepImpl {
         }
     }
 
-    @Then("^The User should be on the Login page$")
-    public void the_User_should_be_on_the_Login_page() {
-        Assert.assertEquals(driver.getTitle(), "Login");
-    }
-
-    @Then("^If they are an existing User, they can Login using their Email address and Password$")
-    public void if_they_are_an_existing_User_they_can_Login_using_their_Email_address_and_Password() {
-        recipeMain.enterEmail();
-        recipeMain.enterPassword();
+    @Then("^The User should be on the Age Verification Page$")
+    public void the_User_should_be_on_the_Age_Verification_Page() {
+        Assert.assertEquals(driver.getTitle(), "Age Verification");
         try {
             Thread.sleep(2000);       //To make it sleep when this is called
         } catch (InterruptedException e) {
@@ -80,8 +74,20 @@ public class RecipeStepImpl {
         }
     }
 
+    @When("^The User selects Over Twenty One$")
+    public void the_User_selects_Over_Twenty_One() {
+        recipeMain.clickTwentyOneButton();
+    }
+
+    @Then("^The User should be on the Login page$")
+    public void the_User_should_be_on_the_Login_page() {
+        Assert.assertEquals(driver.getTitle(), "Login");
+    }
+
     @When("^The User Logs in$")
     public void the_User_Logs_in() {
+        recipeMain.enterEmail();
+        recipeMain.enterPassword();
         recipeMain.clickLogin();
         try {
             Thread.sleep(2000);       //To make it sleep when this is called
