@@ -1,5 +1,6 @@
+from exceptions.login_exception import LoginException
 from exceptions.resource_not_found import ResourceNotFound
-from models.users_model import UsersModel
+from models.users_model import UsersModel, Login
 from repositories.users_repo import UsersRepo
 from util.db_connection import connection
 
@@ -9,9 +10,25 @@ def _build_user(record):
     return UsersModel(user_id=record[0], name=record[1], email=record[2], birth_date=record[3], password=record[4])
 
 
+def _login_user(record):
+    return Login(user_id=record[0], email=record[2], password=record[4])
+
+
 class UsersRepoImpl(UsersRepo):
 
+    def login(self, user):
+        sql = "SELECT * FROM users WHERE email = %s AND password = %s"
+        cursor = connection.cursor()
+        cursor.execute(sql, (user.email, user.password))
+        connection.commit()
+        record = cursor.fetchone()
+        if record:
+            return Login(record[0], record[1], record[2]).json()
+        else:
+            raise LoginException("Incorrect email or password")
+
     def create_user(self, user):
+
         sql = "INSERT INTO users VALUES (DEFAULT,%s,%s,%s,%s) RETURNING *"
 
         cursor = connection.cursor()
@@ -58,24 +75,8 @@ class UsersRepoImpl(UsersRepo):
         connection.commit()
 
 
-def _test():
-    ur = UsersRepoImpl()
-    # user = UsersModel(name="Test Test", email="test@email.com", birth_date="02-02-2022", password="p@ssword")
-    # user1 = ur.create_user(user)
-    # print(user1)
 
-    user = ur.get_user(1)
-    print(user)
-    print("-------------------------------------------------------")
-    print(ur.get_all_users())
-    print("-------------------------------------------------------")
-    user.name = "Updated Name"
-    user = ur.update_user(user)
-    print(user)
-    print("-------------------------------------------------------")
-    ur.delete_user(user.user_id)
-    print(ur.get_all_users())
-    
+
 
 if __name__ == '__main__':
     _test()

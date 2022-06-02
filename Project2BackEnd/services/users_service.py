@@ -6,6 +6,9 @@ class UsersService:
     def __init__(self, users_repo: UsersRepo):
         self.users_repo = users_repo
 
+    def login(self, user):
+        return self.users_repo.login(user)
+
     def create_user(self, user):
         return self.users_repo.create_user(user)
 
@@ -20,3 +23,4 @@ class UsersService:
 
     def delete_user(self, user_id):
         return self.users_repo.delete_user(user_id)
+
