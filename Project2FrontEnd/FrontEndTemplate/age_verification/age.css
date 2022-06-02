@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Sen&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Sen, sans-serif;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c3cad1;
+}
+
+.container {
+  /*width: 960px;*/
+  /*margin: 0 auto;*/
+  width: 480px;
+  height: 390px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Form */
+form {
+  width: 90%;
+}
+
+.form-group {
+  height: 65px;
+}
+
+label {
+  position: relative;
+  bottom: 3px;
+}
+
+input {
+  width: 100%;
+  height: 34px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+
+
+button {
+  cursor: pointer;
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  font-family: Sen, sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+button:hover {
+  filter: brightness(110%);
+  background: rgb(22, 22, 22);
+}
+
+button:focus {
+  outline: none;
+}
+
+.action_btn {
+  display: inline-flex;
+  width: calc(50% - 4px);
+  margin: 20px auto;
+}
+
+span {
+  float: left;
+  height: 100px;
+  margin: 20px;
+  padding: 10px;
+  min-width: 130px;
+  position: inherit;
+}
+

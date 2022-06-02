@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Form</title>
+    <link rel="stylesheet" href="/Project2FrontEnd/FrontEndTemplate/Login-Form/style.css">
+</head>
+
+<body>
+
+
+    <br>
+
+    <div class="container">
+        <h1>Register Today!</h1>
+        <table class="table table-striped table-bordered">
+
+            <tr>
+                <td>Full Name</td>
+                <td><input id="name" type="text" placeholder="First/Last"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input id="email" type="email" placeholder="email@address.com"></td>
+            </tr>
+            <tr>
+                <td>Birth Date</td>
+                <td><input id="birthDate" type="date"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input id="password" type="password" placeholder="Create Password"></td>
+            </tr>
+            <tr>
+        </table>
+        <div>
+            <button class="btn" onclick="submitForm()">Register</button>
+            <button onclick=window.location.href='http://localhost:63342/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/Login-Form/login.html'; id="login">Login</button>
+        </div>
+    </div>
+
+
+    
+</body>
+<!-- This Is the function that will submit the form to the Database-->
+<script>
+
+    async function submitForm() {
+
+        console.log("Submitting.........")
+
+        const nameVal = document.getElementById("name").value
+        const emailVal = document.getElementById("email").value
+        const birthDateVal = document.getElementById("birthDate").value
+        const passwordVal = document.getElementById("password").value
+
+        console.log(nameVal)
+        console.log(emailVal)
+        console.log(birthDateVal)
+        console.log(passwordVal)
+
+        const data = {
+            name: nameVal,
+            email: emailVal,
+            birthDate: birthDateVal,
+            password: passwordVal
+        }
+
+        const url = "http://localhost:5000/users"
+
+        const httpResponse = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+
+        });
+
+
+        const body = await httpResponse.json();
+
+
+        console.log(body);
+        if(body) {
+            alert("Successfully Registered!")
+        } else {
+            alert("Registration unsuccessful.")
+        }
+
+        window.location.reload();
+        document.location.href = "../Login-Form/login.html";
+    }
+
+
+
+</script>
+
+</html>

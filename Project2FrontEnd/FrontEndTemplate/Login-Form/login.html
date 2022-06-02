@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div id="form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email"  placeholder="email@address.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button onclick="login()" id="login">Login</button>
+            <button id="Home" onclick=window.location.href='http://localhost:63342/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/index.html';>Home</button>
+            <button id="register" onclick=window.location.href='http://localhost:63342/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/P2RegistrationFormFinal/Register.html';>Register</button>
+        <span id="message"></span>
+            </div>
+
+    </div>
+
+    
+</body>
+
+<script>
+
+    function login(){
+        console.log("login");
+
+        let xttp = new XMLHttpRequest();
+        
+        xttp.onreadystatechange = function(){
+            console.log(this.readyState);
+
+            if (this.readyState === 4 && this.status === 200){
+                console.log(this.responseText);
+
+                let employee = JSON.parse(this.responseText);
+                document.location.href = "C://Users/Ezeniel/OneDrive/Desktop/New folder (8)/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/Recipe_pages/cocktails.html";
+            }
+        }
+
+        url = "http://localhost:5000/login";
+
+        xttp.open("POST", url, true);
+
+        let body = {
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        };
+
+        xttp.setRequestHeader('Content-Type', 'application/json')
+
+        xttp.send(JSON.stringify(body));
+    }
+
+</script>
+</html>

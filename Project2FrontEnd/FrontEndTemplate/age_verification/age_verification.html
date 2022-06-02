@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Age Verification</title>
+    <link rel="stylesheet" href="../age_verification/age.css">
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to our Website</h1>
+        <br>
+        <br>
+        <br>
+        <div style="color: #c51818">Please Verify your age to enter</div>
+        <div id="form" >
+            <button style="background-color: #2b54b6" class="action_btn submit"
+                    onclick=window.location.href="file:///C://Users/Ezeniel/OneDrive/Desktop/New%20folder%20(8)/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/Login-Form/login.html">I am Over 21</button>
+            <button style="background-color: #c1ceec" class="action_btn cancel" onclick="deny()">I am under 21</button>
+            <br>
+            <br>
+        </div>
+        <br>
+        <span id="message">By entering this site you are agreeing to the Terms of Use and Privacy Policy.</span>
+    </div>
+</body>
+<script>
+
+
+        function deny() {
+
+            const underAge = deny
+
+        console.log(underAge);
+        if (underAge) {
+            alert("Sorry, Your not old enough to Register!")
+        }
+
+        document.location.href = "http://localhost:63343/Revature_project2_Group4/Project2FrontEnd/FrontEndTemplate/index.html";
+    }
+
+</script>
+</html>
